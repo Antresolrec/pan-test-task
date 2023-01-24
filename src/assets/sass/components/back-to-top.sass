@@ -1,0 +1,25 @@
+.back-to-top
+  text-align: right
+  &__link
+    @media (any-hover: hover)
+      &:hover
+        .back-to-top__icon
+          background-color: $cWhite
+          border-color: $cBlack
+          svg
+            path
+              stroke: $cBlack
+  &__icon
+    margin-left: 1rem
+    width: 3rem
+    height: 3rem
+    border-radius: 50%
+    background-color: $cBlack
+    border: solid 1px transparent
+    transition-property: border-color, background-color
+    transition-duration: $trTime
+    svg
+      width: 1.2rem
+      height: .8rem
+      path
+        transition: stroke $trTime

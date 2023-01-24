@@ -1,0 +1,27 @@
+.progress
+  max-width: 55rem
+
+  &__row
+    margin-top: 4rem
+
+  &__btn
+    flex-shrink: 0
+    min-width: 18rem
+    margin-right: 3rem
+    &:disabled
+      opacity: .5
+      pointer-events: none
+
+  &__body
+    background: rgba($cGray,.1)
+    border-radius: 10rem
+    height: 4rem
+    position: relative
+  &__line
+    position: absolute
+    left: 0
+    height: 100%
+    border-radius: inherit
+    background-color: $cBlack
+    color: $cWhite
+    transition: width $trTime

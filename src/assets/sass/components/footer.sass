@@ -1,0 +1,40 @@
+.footer
+
+  &__wrapper
+    border-top: solid 1px rgba($cGray,.2)
+    margin-top: 2rem
+    padding-top: 3rem
+    padding-bottom: 3rem
+    @media (min-width: 768px)
+      padding-top: 4rem
+      padding-bottom: 9rem
+
+  &__row
+    @media (max-width: 767px)
+      text-align: center
+
+
+  &__col
+    margin-bottom: 2rem
+    @media (min-width: 768px)
+      margin-bottom: unset
+    &._same-width
+      @media (min-width: 768px)
+        max-width: 30rem
+        width: 100%
+    &:last-child
+      margin-bottom: unset
+      @media (min-width: 768px)
+        text-align: right
+
+  &__address
+    >p
+      @media (max-width: 767px)
+        display: inline
+  &__phone
+    white-space: nowrap
+
+
+  &__request
+    padding-bottom: .2rem
+    border-bottom: solid 1px $cRed

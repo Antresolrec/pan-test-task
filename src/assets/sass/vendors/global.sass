@@ -1,0 +1,51 @@
+body
+  font-family: $ff-default
+  color: $cBlack
+  background-color: $cWhite
+  font-size: 1.4rem
+  font-weight: 400
+  line-height: normal
+  min-width: 320px
+  @media (min-width: 1024px)
+    font-size: 1.6rem
+  &._lock
+    overflow: hidden
+  &._js-loaded
+    .wrapper
+      opacity: 1
+    .preloader-page
+      display: none
+
+.wrapper
+  display: flex
+  flex-direction: column
+  width: 100%
+  min-height: 100%
+  overflow: hidden
+  // max-width: 2560px
+  // margin: 0 auto
+  opacity: 0
+  transition: opacity $trTime
+
+@media print
+  display: block
+
+.page
+  flex: 1 1 auto
+
+.container
+  margin: 0 auto
+  width: 100%
+  padding: 0 2rem
+  @media (min-width: 768px)
+    padding: 0 4rem
+    max-width: 68rem
+  @media (min-width: 1024px)
+    max-width: 108rem
+  @media (min-width: 1281px)
+    max-width: 130rem
+  &._big
+    max-width: 155rem
+    padding: 0 2rem
+    @media (min-width: 1024px)
+      padding: 0 4rem

@@ -1,0 +1,213 @@
+.header
+  &__wrapper
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 3
+    background-color: $cBlack
+    &._fixed
+      .header__row
+        @media (min-width: 1024px)
+          padding: 1rem 0
+  &__row
+    padding: 1rem 0
+    transition: padding .3s
+    @media (min-width: 768px)
+      justify-content: space-between
+    @media (min-width: 1024px)
+      padding: 1.5rem 0
+
+  &__logo
+    flex-shrink: 0
+    width: 5.8rem
+    position: relative
+    z-index: 2
+    @media (min-width: 1024px)
+      width: 7.6rem
+    img,svg
+      width: 100%
+      height: 100%
+  &__btn
+    margin-left: 2rem
+    position: relative
+    z-index: 2
+    @media (min-width: 768px)
+      margin-left: unset
+.burger
+  position: relative
+  width: 3rem
+  height: 3rem
+  z-index: 2
+  margin-left: auto
+  &:before,
+  &:after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 0.2rem
+    background-color: $cWhite
+  &:before
+    transform: translateY(-.5rem)
+  &:after
+    transform: translateY(.5rem)
+  &._open
+    &:before
+      transform: rotate(-45deg)
+    &:after
+      transform: rotate(45deg)
+
+  @media (min-width: 768px)
+    display: none
+
+.menu
+  &._open
+    opacity: 1
+    pointer-events: all
+    transition-delay: unset
+    .menu__list
+      opacity: 1
+      transform: none
+      transition-delay: $trTime
+  @media (max-width: 767px)
+    display: block
+    position: fixed
+    z-index: 1
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    transition: opacity $trTime
+    transition-delay: $trTime
+    overflow-y: scroll
+    overflow-x: hidden
+    background-color: $cBg
+    pointer-events: none
+    padding: 8rem .5rem 2rem
+  @media (min-width: 768px)
+    display: flex
+    margin-right: 2rem
+    margin-left: 2rem
+  @media (min-width: 1281px)
+    margin-right: 16rem
+
+  &__list
+    color: $cWhite
+    @media (max-width: 767px)
+      transform: translateY(3rem)
+      opacity: 0
+      transition-property: transform, opacity
+      transition-duration: $trTime
+    @media (min-width: 1024px)
+      margin: 0 -1.5rem
+    @media (min-width: 1281px)
+      margin: 0 -3rem
+
+  &__item
+    margin-bottom: 2rem
+    position: relative
+    &:last-child
+      margin-bottom: unset
+    @media (min-width: 768px)
+      margin-bottom: unset
+    @media (min-width: 1024px)
+      padding: 0 1.5rem
+    @media (min-width: 1281px)
+      padding: 0 3rem
+    &._open
+      .submenu
+        @media (max-width: 767px)
+          display: block
+        @media (min-width: 768px)
+          opacity: 1
+          transform: none
+          pointer-events: all
+      .menu__link
+        background-color: $cRed
+        >svg
+          transform: rotate(-180deg)
+  &__link
+    padding: 0 1.5rem
+    height: 3rem
+    font-weight: 700
+    border-radius: 10rem
+    transition: background $trTime
+    @media (min-width: 1024px)
+      height: 4rem
+      padding: 0 2rem
+    &:hover
+      background: rgba($cGray, .5)
+
+    >svg
+      margin-left: 1rem
+      width: 1.4rem
+      height: .8rem
+      flex-shrink: 0
+      transition: transform $trTime
+.submenu
+  @media (max-width: 767px)
+    display: none
+    margin-top: 1rem
+  @media (min-width: 768px)
+    position: absolute
+    top: 100%
+    left: 0
+    width: 55rem
+    opacity: 0
+    transform: translateY(-2rem)
+    pointer-events: none
+    transition-property: opacity, transform
+    transition-duration: $trTime
+    padding-top: 2.5rem
+  @media (min-width: 1024px)
+    padding-top: 3rem
+  &__wrapper
+    border-radius: .9rem
+    background-color: $cBlack
+    padding: 1.5rem
+    padding-top: unset
+    @media (min-width: 1024px)
+      padding: 2.5rem
+      padding-left: 3.5rem
+      padding-top: 1rem
+    @media (min-width: 1281px)
+      padding-left: 5rem
+      padding-top: 1rem
+  &__row
+    padding-bottom: 2rem
+    margin-bottom: .5rem
+    border-bottom: solid 1px rgba($cGray,.5)
+    @media (max-width: 479px)
+      display: block
+    &:last-child
+      margin-bottom: unset
+      padding-bottom: unset
+      border-bottom: unset
+  &__item
+    padding-top: 1.5rem
+    @media (min-width: 480px)
+      width: 50%
+      margin-bottom: unset
+      padding-right: 1.5rem
+.link-submenu
+  &:hover
+    .link-submenu
+      &__icon
+        path
+          fill: $cWhite
+      &__subtitle
+        color: $cWhite
+  &__icon
+    flex-shrink: 0
+    align-self: flex-start
+    margin-right: 1rem
+    margin-top: 0.3rem
+    width: 2.1rem
+    @media (min-width: 768px)
+      margin-right: 1.2rem
+    path
+      transition: fill $trTime
+  &__subtitle
+    margin-top: .5rem
+    transition: color $trTime

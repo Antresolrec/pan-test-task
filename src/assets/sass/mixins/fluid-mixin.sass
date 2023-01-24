@@ -1,0 +1,37 @@
+@mixin font($font, $file, $weight)
+  @font-face
+    font-family: $font
+    font-display: swap
+    src: url("../font/#{$file}.ttf") format("ttf"), url("../font/#{$file}.woff2") format("woff2"), url("../font/#{$file}.woff") format("woff")
+    font-weight: #{$weight}
+    font-style: normal
+    // font-style: #{$style}
+
+@function rem($size)
+  @return $size / $minimum-size * 1rem
+
+@function pct-s($size, $sizeParent)
+  @return $size / $sizeParent * 100%
+
+@function strip-unit($value)
+  @return $value / ($value * 0 + 1)
+
+@mixin fluid-type($mobile-vw, $min-vw, $max-vw, $mobile-font-size, $min-font-size, $max-font-size)
+  $u1: unit($mobile-vw)
+  $u2: unit($min-vw)
+  $u3: unit($max-vw)
+  $u4: unit($mobile-font-size)
+  $u5: unit($min-font-size)
+  $u6: unit($max-font-size)
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 and $u1 == $u5 and $u1 == $u6
+    &
+      font-size: $min-font-size
+      @media screen and (min-width: $min-vw)
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))
+
+      @media screen and (min-width: $max-vw)
+        font-size: $max-font-size
+
+      @media (max-width: $mobile-vw)
+        font-size: $mobile-font-size

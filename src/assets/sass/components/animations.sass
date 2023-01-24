@@ -1,0 +1,48 @@
+.js-anim
+	$zero: 0
+	$value: 4rem
+	transform: translate($zero, $value)
+	opacity: $zero
+	transition: transform .8s, opacity .8s
+	@media (max-width: 479px)
+		transition: transform .5s, opacity .5s
+	&--opacity
+		transform: translate($zero,$zero)
+	&--left
+		transform: translate(-$value, $zero)
+	&--right
+		transform: translate($value, $zero)
+	&--top
+		transform: translate(0, -$value)
+	&--d-02
+		transition-delay: .2s
+	&--d-04
+		transition-delay: .4s
+	&._show
+		transform: translate($zero, $zero)
+		opacity: 1
+
+@keyframes shake
+	0%,
+	50%,
+	100%
+		transform: rotate(0deg)
+
+	10%,
+	30%
+		transform: rotate(-10deg)
+
+	20%,
+	40%
+		transform: rotate(10deg)
+@keyframes float
+	from
+		transform: translatey(0px)
+
+	to
+		transform: translatey(-5px)
+
+.js-mouse-parallax
+	transition: transform .1s linear
+	@media (max-width: 1023px)
+		transform: translate(0,0) !important
