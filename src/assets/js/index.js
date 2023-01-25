@@ -1,6 +1,5 @@
 import initForm from './modules/form-validator/index';
 import Select from './modules/select';
-import LazyLoad from './modules/lazyload';
 import Header from './modules/header';
 import BackToTop from './modules/backToTop';
 import ScrollTo from './modules/scrollToBlock';
@@ -14,7 +13,6 @@ import './modules/burger';
 import './modules/map';
 
 function initModules() {
-  new LazyLoad();
   new Header();
   new BackToTop();
   new ScrollTo();
