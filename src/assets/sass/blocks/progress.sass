@@ -1,13 +1,19 @@
 .progress
-  max-width: 55rem
-
   &__row
     margin-top: 4rem
+    @media (max-width: 479px)
+      display: block
+      margin-top: 1rem
+      >p
+        margin-top: 1rem
 
   &__btn
     flex-shrink: 0
-    min-width: 18rem
-    margin-right: 3rem
+    margin-right: 1.5rem
+    min-width: 10rem
+    @media (min-width: 1024px)
+      min-width: 18rem
+      margin-right: 3rem
     &:disabled
       opacity: .5
       pointer-events: none

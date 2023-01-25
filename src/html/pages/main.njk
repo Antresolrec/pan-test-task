@@ -4,9 +4,9 @@
 
   {% include 'blocks/_intro.njk' %}
 
-  <section class="section mb-120">
+  <section id="anchor-slider" class="section mb-120">
     <div class="container">
-      <div class="section__head text-center mb-50">
+      <div class="section__head text-center mb-50 js-anim">
         <h2 class="fs-48 fw-700">Обычный слайдер</h2>
       </div>
 
@@ -14,37 +14,44 @@
     </div>
   </section>
 
-  <div class="example section mb-120">
+  <div id="anchor-examples" class="example section mb-120">
     <div class="container">
-      <div class="example__row fl fl--between">
-        <div class="progress js-progress" data-start="0" data-increase="25">
-          <div class="progress__body">
-            <div class="progress__line fl fl--center js-progress__line fs-14"></div>
-          </div>
-          <div class="progress__row fl">
-            <button type="button" class="progress__btn btn _red js-progress__btn"></button>
-            <p class="fs-14">При нажатии на кнопку прогрессбар заполняется на столько процентов, сколько указано на кнопке</p>
+      <div class="example__row fl fl--not-mobile  fl--between">
+        <div class="example__col js-anim">
+          <div class="progress js-progress" data-start="0" data-end="100" data-increase="25">
+            <div class="progress__body">
+              <div class="progress__line fl fl--center js-progress__line fs-14"></div>
+            </div>
+            <div class="progress__row fl">
+              <button type="button" class="progress__btn btn _red js-progress__btn"></button>
+              <p class="fs-14">При нажатии на&nbsp;кнопку прогрессбар заполняется на&nbsp;столько процентов, сколько указано на&nbsp;кнопке</p>
+            </div>
           </div>
         </div>
-        <div class="spollers-block js-spollers">
-          <p class="fs-20">Большинство онкологических пациентов испытывают страх перед неизвестностью того, что их ожидает в процессе лечения рака.</p>
-          <div class="spollers-block__item fl fl--column">
-            <button type="button" class="spollers-block__trigger fs-14 fl fl--inline fl--center-vert c-gray js-spoller">
-              <span class="spollers-block__trigger-more">Подробнее</span>
-              <span class="spollers-block__trigger-hide">Скрыть</span>
-              <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1.49438L5 5.49438L9 1.49438" stroke="currentColor" stroke-linecap="round"/>
-              </svg>
-            </button>
-            <div class="spollers-block__text fs-20">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque labore blanditiis adipisci nobis facere molestiae illo, natus excepturi commodi quis?</p>
-              <p>Lorem ipsum dolor sit amet.</p>
+        <div class="example__col js-anim">
+          <div class="spollers-block js-spollers">
+            <p class="fs-20">Большинство онкологических пациентов испытывают страх перед неизвестностью того, что их&nbsp;ожидает в&nbsp;процессе лечения рака.</p>
+            <div class="spollers-block__item fl fl--column">
+              <button type="button" class="spollers-block__trigger fs-14 fl fl--inline fl--center-vert c-gray js-spoller">
+                <span class="spollers-block__trigger-more">Подробнее</span>
+                <span class="spollers-block__trigger-hide">Скрыть</span>
+                <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1.49438L5 5.49438L9 1.49438" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="spollers-block__text fs-20">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque labore blanditiis adipisci nobis facere molestiae illo, natus excepturi commodi quis?</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  {% include 'blocks/_map.njk' %}
 
   {% include 'blocks/_features.njk' %}
 {% endblock %}

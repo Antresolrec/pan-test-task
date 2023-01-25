@@ -11,10 +11,14 @@ body
   &._lock
     overflow: hidden
   &._js-loaded
-    .wrapper
-      opacity: 1
+    // .wrapper
+    //   opacity: 1
     .preloader-page
       display: none
+    .js-anim
+      &._show
+        transform: translate(0,0)
+        opacity: 1
 
 .wrapper
   display: flex
@@ -24,7 +28,7 @@ body
   overflow: hidden
   // max-width: 2560px
   // margin: 0 auto
-  opacity: 0
+  // opacity: 0
   transition: opacity $trTime
 
 @media print

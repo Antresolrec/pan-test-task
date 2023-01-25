@@ -1,4 +1,3 @@
-{% from 'mixins/bread-crumbs.njk' import breadCrumbsMixin with context %}
 <!doctype html>
 <html lang="ru">
 
@@ -14,7 +13,7 @@
   <meta property="og:image" content="ПАН партнёр">
   <meta property="og:type" content="website">
   <meta property="og:url" content="">
-  <link rel="shortcut icon" href="">
+  <link rel="shortcut icon" href="content/favicon.svg">
 </head>
 
 <body>
@@ -23,13 +22,11 @@
   </div>
   <div id="anchor-wrapper" class="wrapper">
     {% include 'includes/header.njk' %}
-    {{ breadCrumbsMixin(breadCrumbs, breadBackButton) }}
     <main class="page">
       {% block content %}{% endblock %}
     </main>
     {% include 'includes/footer.njk' %}
   </div>
-  {% include 'includes/popups.njk' %}
   <script>
     let ua = window.navigator.userAgent;
     function isIE() {
@@ -41,6 +38,6 @@
       document.documentElement.classList.add('internet-explorer');
     }
   </script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=3a11d429-ede5-44bf-b35b-7d257f53ec29&lang=ru_RU"></script>
 </body>
-
 </html>

@@ -1,18 +1,20 @@
-class Progress {
+export default class Progress {
   constructor() {
     this.wrapper = document.querySelector('.js-progress');
+
     if (this.wrapper) {
       this.btn = this.wrapper.querySelector('.js-progress__btn');
       this.line = this.wrapper.querySelector('.js-progress__line');
-      this.start = this.wrapper.dataset.start;
+      this.end = Number(this.wrapper.dataset.end);
+      this.start = Number(this.wrapper.dataset.start);
       this.increase = Number(this.wrapper.dataset.increase);
-      this.count = Number(this.start);
+
       this.init();
     }
   }
 
   setLine(count) {
-    if (count <= 100) {
+    if (count <= this.end) {
       this.line.style.width = `${count}%`;
       this.line.innerText = `${count} %`;
     }
@@ -24,9 +26,11 @@ class Progress {
 
   onClick(e) {
     e.preventDefault();
-    this.count += this.increase;
-    this.setLine(this.count);
-    if (this.count === 100) {
+
+    this.start += this.increase;
+    this.setLine(this.start);
+
+    if (this.start === this.end) {
       this.btn.setAttribute('disabled', true);
       this.btn.removeEventListener('click', this.onClick);
     }
@@ -43,5 +47,3 @@ class Progress {
     this.addListener();
   }
 }
-
-export default Progress;

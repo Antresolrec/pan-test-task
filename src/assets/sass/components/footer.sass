@@ -13,7 +13,6 @@
     @media (max-width: 767px)
       text-align: center
 
-
   &__col
     margin-bottom: 2rem
     @media (min-width: 768px)
@@ -33,8 +32,17 @@
         display: inline
   &__phone
     white-space: nowrap
-
+    padding-bottom: 0.2rem
+    border-bottom: solid 1px transparent
+    transition: border-color $trTime
+    @media (any-hover: hover)
+      &:hover
+        border-color: $cBlack
 
   &__request
     padding-bottom: .2rem
     border-bottom: solid 1px $cRed
+    transition: border-color $trTime
+    @media (any-hover: hover)
+      &:hover
+        border-color: transparent

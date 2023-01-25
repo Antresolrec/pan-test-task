@@ -38,7 +38,10 @@ class Drop {
   clickDocument() {
     document.addEventListener('click', (e) => {
       this.target = e.target;
-      if (!this.target.closest('._open')) {
+      if (
+        !this.target.closest('._open') ||
+        this.target.closest('.js-to-block')
+      ) {
         this.triggers.forEach((el) => {
           el.parentNode.classList.remove(this.class);
         });

@@ -25,9 +25,14 @@
     z-index: 2
     @media (min-width: 1024px)
       width: 7.6rem
+    @media (any-hover: hover)
+      &:hover
+        img,svg
+          transform: scale(1.1)
     img,svg
       width: 100%
       height: 100%
+      transition: transform $trTime
   &__btn
     margin-left: 2rem
     position: relative
@@ -100,9 +105,7 @@
       transition-property: transform, opacity
       transition-duration: $trTime
     @media (min-width: 1024px)
-      margin: 0 -1.5rem
-    @media (min-width: 1281px)
-      margin: 0 -3rem
+      margin: 0 -1rem
 
   &__item
     margin-bottom: 2rem
@@ -112,9 +115,7 @@
     @media (min-width: 768px)
       margin-bottom: unset
     @media (min-width: 1024px)
-      padding: 0 1.5rem
-    @media (min-width: 1281px)
-      padding: 0 3rem
+      padding: 0 1rem
     &._open
       .submenu
         @media (max-width: 767px)
@@ -138,6 +139,9 @@
       padding: 0 2rem
     &:hover
       background: rgba($cGray, .5)
+    &._active
+      background: $cRed
+      color: $cWhite
 
     >svg
       margin-left: 1rem
@@ -191,7 +195,8 @@
       margin-bottom: unset
       padding-right: 1.5rem
 .link-submenu
-  &:hover
+  &:hover,
+  &._active
     .link-submenu
       &__icon
         path

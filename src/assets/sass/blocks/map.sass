@@ -1,0 +1,41 @@
+.map
+  &__wrapper
+    position: relative
+    &:before
+      padding-bottom: pct-s(506,1220)
+      min-height: 35rem
+
+    >ymaps
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
+[class*="copyrights-pane"]
+  display: none !important
+
+.balloon
+  font-family: $ff-default
+  max-width: 200px
+  &__title
+    font-weight: 700
+    margin-bottom: 1rem
+    font-size: 1.6rem
+  &__text
+    font-size: 1.4rem
+    margin-bottom: 1rem
+  &__link
+    color: $cRed
+    text-decoration: underline
+    font-size: 1.4rem
+
+.ymaps-2-1-79-balloon__close+.ymaps-2-1-79-balloon__content
+  padding: 4rem 5rem
+.ymaps-2-1-79-balloon__tail
+  left: 2px
+
+.ymaps-2-1-79-balloon
+  box-shadow: none !important
+  border: none !important
+  border-radius: .5rem

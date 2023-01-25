@@ -5,7 +5,9 @@
 	opacity: $zero
 	transition: transform .8s, opacity .8s
 	@media (max-width: 479px)
-		transition: transform .5s, opacity .5s
+		opacity: 1
+		transform: none
+		transition: none
 	&--opacity
 		transform: translate($zero,$zero)
 	&--left
@@ -18,9 +20,10 @@
 		transition-delay: .2s
 	&--d-04
 		transition-delay: .4s
-	&._show
-		transform: translate($zero, $zero)
-		opacity: 1
+	&--d-06
+		transition-delay: .6s
+	&--d-08
+		transition-delay: .8s
 
 @keyframes shake
 	0%,
@@ -41,7 +44,11 @@
 
 	to
 		transform: translatey(-5px)
-
+@keyframes preloader
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
 .js-mouse-parallax
 	transition: transform .1s linear
 	@media (max-width: 1023px)
