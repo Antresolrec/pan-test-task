@@ -1,6 +1,4 @@
 /* eslint-disable */
-
-const centerOfMap = [59.928194, 30.346644];
 const balloonTemplate = `
   <div class="balloon">
     <div class="balloon__title">Наш адрес</div>
@@ -8,6 +6,12 @@ const balloonTemplate = `
     <a href="#" class="balloon__link">Схема проезда</a>
   </div>
 `;
+const libraryPath = 'https://api-maps.yandex.ru/2.1/?apikey=3a11d429-ede5-44bf-b35b-7d257f53ec29&lang=ru_RU';
+const centerOfMap = [59.928194, 30.346644];
+const mapContainer = document.querySelector('.js-map-container');
+let visible = false;
+let loaded = false;
+let interval = null;
 
 function initMap() {
   const myMap = new ymaps.Map('js-map', {
@@ -39,6 +43,42 @@ function initMap() {
   myPlacemark.balloon.open();
 }
 
-ymaps.ready(initMap);
+function loadLibrary() {
+  const mapLibrary = document.createElement('script');
+  mapLibrary.src = libraryPath;
+  document.body.append(mapLibrary);
+}
 
+function tryLoad() {
+  if (!loaded && window.ymaps) {
+    loaded = true;
+    ymaps.ready(initMap);
+    window.removeEventListener('scroll', loadMap);
+    removeInterval();
+  }
+}
+
+function addInterval() {
+  if (!interval) {
+    interval = setInterval(tryLoad, 500);
+  }
+}
+
+function removeInterval() {
+  clearInterval(interval);
+  interval = null;
+}
+
+function loadMap() {
+  if (mapContainer.classList.contains('_show')) {
+    if (!visible) {
+      visible = true;
+      loadLibrary();
+      addInterval();
+    }
+  }
+}
+
+window.addEventListener('scroll', loadMap);
+loadMap();
 /* eslint-enable */
