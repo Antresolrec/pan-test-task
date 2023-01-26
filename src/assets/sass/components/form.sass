@@ -1,53 +1,110 @@
 .form
-  &__item
-    margin: 0 0 4rem 0
-    &:last-child
-      margin: 0
-  &__btn
-    display: inline-flex
-    justify-content: center
-    align-items: center
-    height: 5rem
-    max-width: 20rem
+  &__row
+    margin: -1.5rem
+  &__col
+    padding: 1.5rem
     width: 100%
-    background-color: $cBlack
-    color: $cWhite
-    &._inactive-submit
-      pointer-events: none
-      background-color: gray
-.input-form
-  position: relative
-  display: block
+    @media (min-width: 1024px)
+      width: 50%
 
-  input
+.js-input-box
+  &._error
+    .item-form
+      &__input
+        border-color: $cRed
+      &__error
+        opacity: 1
+        transform: none
+    .checkbox__input
+      ~.checkbox
+        &__body
+          border-color: $cRed
+
+.item-form
+  position: relative
+  &__title
+    color: $cGray
+    font-size: 1.4rem
+    margin-bottom: 1rem
+    span
+      color: $cRed
+  &__label
     display: block
     width: 100%
-    height: 100%
-    position: relative
-    z-index: 1
-    border: solid .1rem $cBlack
-    height: 4rem
-    padding: 0 1rem
-    transition: border-color .3s
-    &._error
-      border-color: red
-      ~.input-form__message--error
-        opacity: 1
-        pointer-events: all
-        transform: translateY(0)
-    &._correct
-      border-color: green
-      ~.input-form__message--correct
-        opacity: 1
-        pointer-events: all
-        transform: translateY(0)
-  &__message
+  &__input
+    display: block
+    width: 100%
+    height: 5rem
+    padding: 0 1.5rem
+    font-size: 1.4rem
+    color: $cWhite
+    background-color: transparent
+    border: solid 1px rgba($cGray,.4)
+    border-radius: .4rem
+    transition: border-color $trTime
+    &::placeholder
+      color: $cGray
+    &:focus
+      border-color: $cGray
+    @media (min-width: 768px)
+      height: 6rem
+      padding: 0 2.5rem
+  &__error
+    font-size: 1.2rem
+    color: $cRed
     position: absolute
-    z-index: 0
-    top: calc( 100% + .5rem )
-    right: 0
-    color: red
+    top: 100%
+    left: 0
+    margin-top: .5rem
     opacity: 0
     transform: translateY(-1rem)
     pointer-events: none
-    transition: all .3s
+    transition-property: transform, opacity
+    transition-duration: $trTime
+
+.checkbox
+  cursor: pointer
+  &__input
+    display: none
+    &:checked
+      ~.checkbox
+        &__body
+          background-color: $cRed
+          border-color: $cRed
+          svg
+            opacity: 1
+            transform: none
+  &__body
+    flex-shrink: 0
+    width: 2.2rem
+    height: 2.2rem
+    border: 1px solid rgba(143, 149, 172, 0.3)
+    border-radius: .2rem
+    margin-right: 1.2rem
+    transition-property: background-color, border-color
+    transition-duration: $trTime
+    @media (any-hover: hover)
+      &:hover
+        border-color: $cRed
+    @media (min-width: 768px)
+      margin-right: 1.7rem
+      width: 1.8rem
+      height: 1.8rem
+    svg
+      opacity: 0
+      transform: scale(0)
+      width: 1.3rem
+      height: 1.1rem
+      transition-property: opacity, transform
+      transition-duration: $trTime
+  &__text
+    font-size: 1.4rem
+    color: $cGray
+    max-width: 35rem
+    line-height: 1.3
+    a
+      color: $cRed
+      display: inline
+      @media (any-hover: hover)
+        &:hover
+          text-decoration: underline
