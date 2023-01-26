@@ -64,35 +64,13 @@
 
     @media (min-width: 768px)
       display: flex
-
-.abs
-  $zero: 0
-  position: absolute
-  top: $zero
-  left: $zero
-.abs-center
-  $value: 50%
-  position: absolute
-  top: $value
-  left: $value
-  transform: translate(-$value,-$value)
-.wh
-  $value: 100%
-  width: $value
-  height: $value
-.w-50
-  width: 50%
-.w-33
-  width: 33.333%
-.w-25
-  width: 25%
-.w-20
-  width: 20%
 .item-response
+  line-height: 0
+  position: relative
   &:before
     content: ''
+    display: block
     padding-bottom: 100%
-    display: inline-block
   img,svg
     $zero: 0
     $value: 100%
