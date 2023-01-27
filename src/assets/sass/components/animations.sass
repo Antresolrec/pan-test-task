@@ -24,27 +24,10 @@
 		transition-delay: .6s
 	&--d-08
 		transition-delay: .8s
-
-@keyframes shake
-	0%,
-	50%,
-	100%
-		transform: rotate(0deg)
-
-	10%,
-	30%
-		transform: rotate(-10deg)
-
-	20%,
-	40%
-		transform: rotate(10deg)
-@keyframes float
-	from
-		transform: translatey(0px)
-
-	to
-		transform: translatey(-5px)
 .js-mouse-parallax
 	transition: transform .1s linear
 	@media (max-width: 1023px)
 		transform: translate(0,0) !important
+@keyframes addBodyScroll
+  to
+    overflow: visible

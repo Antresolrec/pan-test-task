@@ -6,11 +6,14 @@ body
   font-weight: 400
   line-height: normal
   min-width: 320px
+  overflow: hidden
+  animation: addBodyScroll .7s 5s both
   @media (min-width: 1024px)
     font-size: 1.6rem
   &._lock
     overflow: hidden
   &._js-loaded
+    overflow: visible
     .preloader-page
       animation: hidePreloader .7s both
       // display: none
@@ -18,7 +21,6 @@ body
       &._show
         transform: translate(0,0)
         opacity: 1
-
 .wrapper
   display: flex
   flex-direction: column
